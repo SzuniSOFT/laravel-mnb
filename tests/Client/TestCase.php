@@ -9,7 +9,8 @@ use Mockery;
 use SzuniSoft\Mnb\Laravel\Client;
 use SzuniSoft\Mnb\Model\Currency;
 
-class TestCase extends \Orchestra\Testbench\TestCase {
+class TestCase extends \Orchestra\Testbench\TestCase
+{
 
     /**
      * @var Mockery\MockInterface
@@ -36,17 +37,17 @@ class TestCase extends \Orchestra\Testbench\TestCase {
      */
     protected $exchangeRateList;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->timeout = 10;
-        $store = Cache::store();
-        $this->mnb = Mockery::mock(\SzuniSoft\Mnb\Client::class);
-        $this->client = new Client($this->mnb, $store, $this->timeout);
+        $store         = Cache::store();
+        $this->mnb     = Mockery::mock(\SzuniSoft\Mnb\Client::class);
+        $this->client  = new Client($this->mnb, $store, $this->timeout);
 
         $this->exchangeRateList = [
-            new Currency('EUR',1, 300)
+            new Currency('EUR', 1, 300),
         ];
     }
 
