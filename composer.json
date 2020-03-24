@@ -49,5 +49,12 @@
   "prefer-stable": true,
   "scripts": {
     "test": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "SzuniSoft\\Mnb\\Laravel\\MnbServiceProvider"
+      ]
+    }
   }
 }
